@@ -4,8 +4,9 @@ FROM python:3
 # Set the working directory in the container
 WORKDIR /app
 
-# Install Django directly (and any other dependencies)
-RUN pip install django==3.2
+# Copy requirements file (assuming you have one) and install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code
 COPY . .
